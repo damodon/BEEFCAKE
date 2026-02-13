@@ -18,7 +18,7 @@
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             min-height: 100vh;
             padding: 20px;
-            padding-bottom: 40px;
+            padding-bottom: 100px;
         }
 
         .container {
@@ -26,21 +26,45 @@
             margin: 0 auto;
         }
 
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            backdrop-filter: blur(10px);
         }
 
-        h1 {
+        .day-selector-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            font-weight: 600;
             color: #333;
-            font-size: 28px;
-            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .day-selector-btn:active {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .day-selector-btn::after {
+            content: '▼';
+            font-size: 12px;
+            opacity: 0.5;
         }
 
         .settings-icon {
@@ -49,50 +73,99 @@
             opacity: 0.6;
             transition: opacity 0.2s;
             user-select: none;
+            padding: 8px;
         }
 
-        .settings-icon:hover {
+        .settings-icon:active {
             opacity: 1;
         }
 
-        .day-selector {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .day-buttons {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding: 5px;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .day-buttons::-webkit-scrollbar {
+        .day-picker-modal {
             display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 200;
+            animation: fadeIn 0.2s;
         }
 
-        .day-btn {
-            flex-shrink: 0;
-            padding: 12px 20px;
+        .day-picker-modal.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .day-picker-content {
+            background: white;
+            border-radius: 20px 20px 0 0;
+            padding: 20px;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .day-picker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .day-picker-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .day-picker-close {
+            background: none;
             border: none;
-            border-radius: 12px;
-            background: #f0f0f0;
-            color: #666;
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 28px;
+            color: #999;
             cursor: pointer;
-            transition: all 0.3s;
-            white-space: nowrap;
+            padding: 0;
+            width: 32px;
+            height: 32px;
         }
 
-        .day-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            transform: scale(1.05);
+        .day-picker-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .day-picker-item {
+            padding: 18px 20px;
+            border: none;
+            background: none;
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+            cursor: pointer;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s;
+        }
+
+        .day-picker-item:last-child {
+            border-bottom: none;
+        }
+
+        .day-picker-item:active {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .day-picker-item.selected {
+            color: #667eea;
+            font-weight: 700;
         }
 
         .exercises-list {
@@ -339,25 +412,33 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>💪 Workouts</h1>
-            <div class="settings-icon" onclick="showSettings()">⚙️</div>
-        </header>
-
-        <div class="day-selector">
-            <div class="day-buttons">
-                <button class="day-btn" onclick="selectDay('Monday')">Mon</button>
-                <button class="day-btn" onclick="selectDay('Tuesday')">Tue</button>
-                <button class="day-btn" onclick="selectDay('Wednesday')">Wed</button>
-                <button class="day-btn" onclick="selectDay('Thursday')">Thu</button>
-                <button class="day-btn" onclick="selectDay('Friday')">Fri</button>
-                <button class="day-btn" onclick="selectDay('Saturday')">Sat</button>
-                <button class="day-btn" onclick="selectDay('Sunday')">Sun</button>
-            </div>
-        </div>
-
         <div id="exercisesList" class="exercises-list">
             <div class="loading">Loading exercises...</div>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <button class="day-selector-btn" onclick="showDayPicker()">
+            <span id="currentDayText">Monday</span>
+        </button>
+        <div class="settings-icon" onclick="showSettings()">⚙️</div>
+    </div>
+
+    <div id="dayPickerModal" class="day-picker-modal" onclick="closeDayPickerOnBackdrop(event)">
+        <div class="day-picker-content" onclick="event.stopPropagation()">
+            <div class="day-picker-header">
+                <h3 class="day-picker-title">Select Day</h3>
+                <button class="day-picker-close" onclick="closeDayPicker()">×</button>
+            </div>
+            <div class="day-picker-list">
+                <button class="day-picker-item" onclick="selectDay('Monday')">Monday</button>
+                <button class="day-picker-item" onclick="selectDay('Tuesday')">Tuesday</button>
+                <button class="day-picker-item" onclick="selectDay('Wednesday')">Wednesday</button>
+                <button class="day-picker-item" onclick="selectDay('Thursday')">Thursday</button>
+                <button class="day-picker-item" onclick="selectDay('Friday')">Friday</button>
+                <button class="day-picker-item" onclick="selectDay('Saturday')">Saturday</button>
+                <button class="day-picker-item" onclick="selectDay('Sunday')">Sunday</button>
+            </div>
         </div>
     </div>
 
@@ -464,13 +545,19 @@
         function selectDay(day) {
             currentDay = day;
             
-            // Update button states
-            document.querySelectorAll('.day-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.textContent.startsWith(day.substring(0, 3))) {
-                    btn.classList.add('active');
+            // Update the current day text
+            document.getElementById('currentDayText').textContent = day;
+            
+            // Update selected state in day picker
+            document.querySelectorAll('.day-picker-item').forEach(item => {
+                item.classList.remove('selected');
+                if (item.textContent === day) {
+                    item.classList.add('selected');
                 }
             });
+            
+            // Close the day picker
+            closeDayPicker();
             
             // Filter exercises for the day
             const dayExercises = exercisesData.filter(ex => ex.Day === day);
@@ -502,6 +589,30 @@
                         </div>
                     </div>
                 `).join('');
+            }
+        }
+
+        // Show day picker modal
+        function showDayPicker() {
+            document.getElementById('dayPickerModal').classList.add('active');
+            // Update selected state
+            document.querySelectorAll('.day-picker-item').forEach(item => {
+                item.classList.remove('selected');
+                if (item.textContent === currentDay) {
+                    item.classList.add('selected');
+                }
+            });
+        }
+
+        // Close day picker modal
+        function closeDayPicker() {
+            document.getElementById('dayPickerModal').classList.remove('active');
+        }
+
+        // Close day picker when clicking backdrop
+        function closeDayPickerOnBackdrop(event) {
+            if (event.target.id === 'dayPickerModal') {
+                closeDayPicker();
             }
         }
 
