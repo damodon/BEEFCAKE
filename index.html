@@ -44,11 +44,11 @@
         }
 
         .settings-icon {
-            width: 32px;
-            height: 32px;
+            font-size: 28px;
             cursor: pointer;
             opacity: 0.6;
             transition: opacity 0.2s;
+            user-select: none;
         }
 
         .settings-icon:hover {
@@ -229,6 +229,17 @@
             font-size: 16px;
             line-height: 1.6;
             color: #555;
+            white-space: pre-wrap;
+        }
+
+        .detail-description a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .detail-description a:hover {
+            text-decoration: underline;
         }
 
         .no-exercises {
@@ -330,10 +341,7 @@
     <div class="container">
         <header>
             <h1>💪 Workouts</h1>
-            <svg class="settings-icon" onclick="showSettings()" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M12 1v6m0 6v6m-6-6h6m6 0h6m-13.5-6.5l4.24 4.24m5.52 0L19.5 6.5m-13.5 13.5L10.76 14.76m5.52 0l4.24 4.24"></path>
-            </svg>
+            <div class="settings-icon" onclick="showSettings()">⚙️</div>
         </header>
 
         <div class="day-selector">
@@ -500,7 +508,13 @@
         // Show exercise detail
         function showDetail(exercise) {
             document.getElementById('detailTitle').textContent = exercise.Exercise;
-            document.getElementById('detailDescription').textContent = exercise.Description;
+            
+            // Convert URLs in description to clickable links
+            const description = exercise.Description;
+            const urlRegex = /(https?:\/\/[^\s]+)/g;
+            const descriptionWithLinks = description.replace(urlRegex, '<a href="$1" target="_blank">$1</a>');
+            
+            document.getElementById('detailDescription').innerHTML = descriptionWithLinks;
             
             const imgEl = document.getElementById('detailImage');
             if (exercise.Image && exercise.Image.trim()) {
