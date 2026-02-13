@@ -1,18 +1,13 @@
-Day,Exercise,Repetitions,Sets,Description,Image
-Monday,Push-ups,12,3,Start in a plank position with hands shoulder-width apart. Lower your body until your chest nearly touches the floor. Push back up to starting position. Keep your core tight throughout the movement.,
-Monday,Squats,15,3,Stand with feet shoulder-width apart. Lower your body by bending your knees and pushing your hips back as if sitting in a chair. Keep your chest up and knees behind your toes. Push through your heels to return to starting position.,
-Monday,Plank,60 sec,3,Start in a forearm plank position with elbows directly under shoulders. Keep your body in a straight line from head to heels. Engage your core and hold the position. Don't let your hips sag or pike up.,
-Tuesday,Pull-ups,8,3,Hang from a pull-up bar with hands slightly wider than shoulder-width. Pull yourself up until your chin clears the bar. Lower yourself back down with control. Engage your back and core throughout.,
-Tuesday,Lunges,12 per leg,3,Step forward with one leg and lower your hips until both knees are bent at 90 degrees. Keep your front knee above your ankle. Push back to starting position and repeat with the other leg.,
-Tuesday,Russian Twists,20,3,Sit on the floor with knees bent and feet lifted. Lean back slightly and rotate your torso from side to side. For added difficulty hold a weight. Keep your core engaged throughout.,
-Wednesday,Rest Day,-,-,Active recovery - light stretching or a gentle walk. Stay hydrated and get good sleep.,
-Thursday,Dumbbell Press,10,4,Lie on a bench with a dumbbell in each hand at chest level. Press the weights up until your arms are fully extended. Lower back down with control. Keep your feet flat on the floor.,
-Thursday,Deadlifts,8,4,Stand with feet hip-width apart with a barbell over your feet. Bend at the hips and knees to grip the bar. Keep your back straight and lift by extending your hips and knees. Lower the bar back down with control.,
-Thursday,Mountain Climbers,30 sec,3,Start in a plank position. Drive one knee toward your chest then quickly switch legs in a running motion. Keep your core tight and hips level. Maintain a steady rhythm.,
-Friday,Dips,10,3,Using parallel bars support your weight with arms straight. Lower your body by bending your elbows until your shoulders are below your elbows. Push back up to starting position. Keep your core engaged.,
-Friday,Leg Press,12,3,Sit in the leg press machine with feet shoulder-width apart on the platform. Push the platform away by extending your knees and hips. Lower back down with control. Don't lock out your knees at the top.,
-Friday,Bicycle Crunches,20,3,Lie on your back with hands behind your head. Bring one knee toward your chest while rotating your torso to bring the opposite elbow toward that knee. Alternate sides in a pedaling motion.,
-Saturday,Burpees,15,3,Start standing then drop into a squat with hands on the ground. Kick your feet back into a plank. Do a push-up then jump your feet back to your hands. Jump up with arms overhead.,
-Saturday,Box Jumps,12,3,Stand facing a sturdy box or platform. Jump onto the box landing with both feet. Step or jump back down. Use your arms for momentum. Start with a lower height if needed.,
-Saturday,Plank to Downward Dog,10,3,Start in a plank position. Push your hips up and back into downward dog position. Return to plank. Keep movements controlled and core engaged throughout.,
-Sunday,Rest Day,-,-,Complete rest or gentle yoga/stretching. Focus on recovery and mobility work.,
+﻿Day,Exercise,Repetitions,Sets,Description,Image
+Monday,Push-Up,8–12,3,"Control tempo, focus on form",https://training.fit/exercise/push-ups/
+Monday,Chest flies,8–12,3,"Seated, light weight",https://training.fit/wp-content/uploads/2019/02/fliegende-flachbank-kurzhanteln-1.png
+Monday,Dumbbell Chest Press,12-15 reps,3,Endurance focus,https://training.fit/wp-content/uploads/2020/02/bankdruecken-kurzhantel-negativ.png
+Monday,Bent over single arm tricep extensions,12–15 each ,2,"Light, controlled, use bench",https://training.fit/wp-content/uploads/2020/02/rudern-kurzhantel.png
+Wednesday,Bent over rows,10–12,3,Neutral grip,https://liftmanual.com/wp-content/uploads/2023/04/dumbbell-bent-over-row.jpg
+Wednesday,Single arm banded pull down,12-15 reps,3,Controlled lowering phase,https://www.fitsimplify.com/wp-content/uploads/2018/05/Straight-arm-Pulldown-533x400.png
+Wednesday,Dumbbell Deadlift / Hinge Intro,10,3,"Light DBs, hip hinge focus",https://cdn.shopify.com/s/files/1/1497/9682/files/4_4c053fcc-56ec-4be6-9066-cae8ebf856e4.jpg?v=1666357456
+Wednesday,Banded Face Pulls,15,2,Posture focus. EG https://www.youtube.com/watch?v=HHZ1_OZKLII,https://liftmanual.com/wp-content/uploads/2023/04/band-face-pull.jpg
+Friday,Bodyweight Squat,12–15,3,Slow tempo,https://training.fit/wp-content/uploads/2020/03/kniebeugen.png
+Friday,Romanian deadlift,10–12,2,Light–moderate load,https://training.fit/wp-content/uploads/2020/03/kreuzheben-gestreckte-beine-kurzhantel.png
+Friday,Glute Bridge,12–15,3,Squeeze glutes,https://www.gofitnessplan.com/images/exercises/mixed/glutes-bridge.jpg
+Friday,Calf Raises,15,3,Full range,https://trainingstation.co.uk/cdn/shop/articles/standing-calf-raises_eaa81211-4f0c-41bd-8e60-09268e568799_2500x.png?v=1751029336
